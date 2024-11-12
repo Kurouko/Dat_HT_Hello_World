@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="location_item_2_view_form" model="ir.ui.view">
+    <field name="name">location.odoo.form</field>
+    <field name="model">location.odoo</field>
+    <field name="arch" type="xml">
+        <form string="Các vị trí">
+            <sheet>
+                <group>
+                    <field name="name"/>
+                </group>
+                <notebook>
+                    <page string="Bất động sản" name="estates">
+                        <field name="estate_ids" context="{'default_location_id': id}" colspan="4" nolabel="1">
+                            <tree string="Các bất động sản" editable="bottom">
+                                <field name="name"/>
+                                <field name="address"/>
+                                <field name="status"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+    <record id="location_item_2_view_tree" model="ir.ui.view">
+        <field name="name">location.odoo.tree</field>
+        <field name="model">location.odoo</field>
+        <field name="arch" type="xml">
+            <tree string="Vị trí" create="1" delete="1">
+                <field name="name"/>       
+            </tree>
+        </field>
+    </record>
+    <record id="location_item_2_view_search" model="ir.ui.view">
+        <field name="name">location.odoo.search.view</field>
+        <field name="model">location.odoo</field>
+        <field name="arch" type="xml">
+            <search string="Vị trí">
+                <field name="name"/>            
+            </search>
+        </field>
+    </record>
+
+    <record id="action_location_item_2_form" model="ir.actions.act_window">
+        <field name="name">Vị trí</field>
+        <field name="res_model">location.odoo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="context"></field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Hãy thêm một vị trí
+            </p>
+        </field>
+    </record>
+</odoo>

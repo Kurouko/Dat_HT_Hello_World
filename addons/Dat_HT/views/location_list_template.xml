@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="location_list_template" name="Danh sách vị trí">
+        <div id="wrap" class="container">
+            <h1>Các vị trí</h1>
+            <t t-foreach="locations" t-as="location">
+                <div class="row">
+                    <t t-set="nameOfLocation" t-value="location.name" />
+                    <span t-out="nameOfLocation" />                 
+                </div>
+            </t>
+        </div>
+    </template>
+</odoo>

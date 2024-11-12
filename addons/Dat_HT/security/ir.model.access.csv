@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+Dat_HT.access_Dat_HT_location_user,Location User,Dat_HT.model_location_odoo,location_group_user,1,0,0,0
+Dat_HT.access_Dat_HT_location_manager,Location Manager,Dat_HT.model_location_odoo,location_group_manager,1,1,1,1
+Dat_HT.access_Dat_HT_estate_user,Location User,Dat_HT.model_estate_odoo,estate_group_user,1,0,0,0
+Dat_HT.access_Dat_HT_estate_manager,Location Manager,Dat_HT.model_estate_odoo,estate_group_manager,1,1,1,1

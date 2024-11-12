@@ -1,0 +1,14 @@
+<record id="user_view_inherit_tutorial" model="ir.ui.view">
+    <field name="name">location.odoo.view.inherit</field>
+    <field name="model">location.odoo</field>
+    <field name="inherit_id" ref="your_original_view_id"/>
+    <field name="arch" type="xml">
+        <xpath expr="//separator[@string='Tutorial']" position="replace">
+            <separator string="Tutorial"/>
+            <field name="tutorial_groups" widget="selection" options="{'no_create': True, 'no_open': True}" context="{'group': 'base.group_no_one'}">
+                <option value="in_group_17" string="Group 17"/>
+                <option value="in_group_15" string="Group 15"/>
+            </field>
+        </xpath>
+    </field>
+</record>

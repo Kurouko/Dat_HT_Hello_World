@@ -1,0 +1,7 @@
+/* static/src/css/custom_styles.css */
+.product-images .o_field_many2many_binary {
+    border: 2px dashed #ddd;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}

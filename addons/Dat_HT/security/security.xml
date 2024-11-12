@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <!-- Define groups -->
+        <record id="location_group_user" model="res.groups">
+            <field name="name">Location User</field>
+            <field name="category_id" ref="base.module_category_tutorial"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+        <record id="location_group_manager" model="res.groups">
+            <field name="name">Location Manager</field>
+            <field name="category_id" ref="base.module_category_tutorial"/>
+            <field name="implied_ids" eval="[(6, 0, [ref('location_group_user')])]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+        <record id="estate_group_user" model="res.groups">
+            <field name="name">Estate User</field>
+            <field name="category_id" ref="base.module_category_tutorial"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+        <record id="estate_group_manager" model="res.groups">
+            <field name="name">Estate Manager</field>
+            <field name="category_id" ref="base.module_category_tutorial"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <!-- Define model access rights -->
+        <record id="access_location_user" model="ir.model.access">
+            <field name="name">Access Location User</field>
+            <field name="model_id" ref="Dat_HT.model_location_odoo"/>
+            <field name="group_id" ref="location_group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+        <record id="access_location_manager" model="ir.model.access">
+            <field name="name">Access Location Manager</field>
+            <field name="model_id" ref="Dat_HT.model_location_odoo"/>
+            <field name="group_id" ref="location_group_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+        <record id="access_estate_user" model="ir.model.access">
+            <field name="name">Access Estate User</field>
+            <field name="model_id" ref="Dat_HT.model_estate_odoo"/>
+            <field name="group_id" ref="estate_group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+        <record id="access_estate_manager" model="ir.model.access">
+            <field name="name">Access Estate Manager</field>
+            <field name="model_id" ref="Dat_HT.model_estate_odoo"/>
+            <field name="group_id" ref="estate_group_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+    </data>
+</odoo>

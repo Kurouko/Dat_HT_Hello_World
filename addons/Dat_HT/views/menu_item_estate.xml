@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+<record id="estate_item_view_form" model="ir.ui.view">
+    <field name="name">estate.odoo.form</field>
+    <field name="model">estate.odoo</field>
+    <field name="arch" type="xml">
+        <form string="Thông tin bất động sản">
+            <group>
+                <field name="name" string="Tên bất động sản"/>
+                <field name="address" string="Địa chỉ"/>
+                <field name="status" string="Trạng thái"/>
+                <field name="location_id" string="Vị trí"/>
+            </group>
+            <notebook>
+                <page string="Estate Attachments">
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </page>
+
+                <page string="Other Attachments" >
+                     <div class="oe_chatter" data-field="Estate_Attachment_ids">
+                        <div class="o_form_group o_inner_group" style="margin-top: 20px;">
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- Dropzone cho attachments -->
+                                        <field name="Estate_Attachment_ids" widget="many2many_binary"  />
+                                    <!-- Nút Save Attachments -->
+                                    <!-- <button name="action_save_attachments" type="object" string="Save Attachments"
+                                                class="btn-primary" style="margin-top: 10px;"
+                                                attrs="{'invisible': [('estate_attachment_ids', '=', False)]}">
+                                            Save
+                                    </button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </page>
+                <page string="Giới thiệu">
+                    <field name="description" string="Giới thiệu"/>
+                </page>
+            </notebook>
+        </form>
+    </field>
+</record>
+
+
+
+
+
+
+    <!-- Tree View -->
+    <record id="estate_item_view_tree" model="ir.ui.view">
+        <field name="name">estate.odoo.tree</field>
+        <field name="model">estate.odoo</field>
+        <field name="arch" type="xml">
+            <tree string="Bất động sản" create="1" edit="1" delete="1">
+                <field name="name"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="estate_item_view_search" model="ir.ui.view">
+        <field name="name">estate.odoo.search.view</field>
+        <field name="model">estate.odoo</field>
+        <field name="arch" type="xml">
+            <search string="Bất động sản">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action View -->
+    <record id="action_estate_item_form" model="ir.actions.act_window">
+        <field name="name">Bất động sản</field>
+        <field name="res_model">estate.odoo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="context"></field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Hãy thêm một bất động sản
+            </p>
+        </field>
+    </record>
+</odoo>
